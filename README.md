@@ -70,3 +70,26 @@ cd build
 cmake -DCODEGEN=true ../src
 make
 ```
+
+### Enable ViennaCL
+
+#### Build ViennaCL
+
+Download ViennaCL from http://viennacl.sourceforge.net/viennacl-download.html
+to `${VIENNACL_PATH}`
+
+```
+cd ${VIENNACL_PATH}/build
+cmake ../
+make
+```
+
+#### Build spmv-benchmarking with ViennaCL
+
+```
+# Start from spmv-benchmarking root folder
+cd build
+
+cmake -DVIENNACL=${VIENNACL_PATH} ../src
+make
+```
