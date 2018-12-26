@@ -1,0 +1,40 @@
+//
+// Created by Sarili, Erdem on 20.09.18.
+//
+
+#ifndef THUNDERCAT_CUSPADAPTER_HU
+#define THUNDERCAT_CUSPADAPTER_HU
+
+namespace thundercat {
+  class CuspAdapter {
+
+    // array1d_view to wrap the individual arrays
+    typedef typename cusp::array1d_view< thrust::device_ptr<int>   > DeviceIndexArrayView;
+    typedef typename cusp::array1d_view< thrust::device_ptr<double> > DeviceValueArrayView;
+
+    typedef cusp::csr_matrix_view<DeviceIndexArrayView, DeviceIndexArrayView, DeviceValueArrayView> DeviceView;
+
+  public:
+    void preprocess(int, int, int, int*, int*, double*);
+    void setX(double *);
+    void getY(double *);
+    void spmv();
+  private:
+    int M;
+    int N;
+    int NNZ;
+
+    double *devX;
+    double *devY;
+
+    DeviceValueArrayView x;
+    DeviceValueArrayView y;
+    DeviceView A;
+
+  };
+
+  CuspAdapter* newCuspAdapter();
+  void deleteCuspAdapter(CuspAdapter* handle);
+}
+
+#endif //THUNDERCAT_CUSPADAPTER_HU

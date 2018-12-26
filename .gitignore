@@ -1,0 +1,5 @@
+build/
+MMMatrixIO/
+docopt.cpp/
+asmjit/
+lib/

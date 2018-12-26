@@ -1,0 +1,34 @@
+#ifndef _THUNDERCAT_CUSPARSE_HU
+#define _THUNDERCAT_CUSPARSE_HU
+
+#include <cuda_runtime.h>
+#include "cusparse.h"
+
+
+namespace thundercat {
+  class CusparseAdaptor {
+  public:
+    ~CusparseAdaptor();
+    void init();
+    void preprocess(int nnz, int m, int n, int * rowPtr, int* colIdx, double* values);
+    void setX(double * v);
+    void getY(double * w);
+    void spmv();
+  private :
+    cusparseHandle_t handle;
+    cusparseMatDescr_t descr;
+    int * rowIndexDevPtr;
+    int * colIndexDevPtr;
+    double * valDevPtr;
+    double * x;
+    double * y;
+    int M;
+    int N;
+    int NNZ;
+  };
+
+  CusparseAdaptor* newCusparseAdaptor();
+  void deleteCusparseAdaptor(CusparseAdaptor* adaptor);
+}
+
+#endif //_THUNDERCAT_CUSPARSE_HU

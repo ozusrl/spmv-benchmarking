@@ -1,0 +1,3 @@
+/opt/thesis/thundercat/src/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/opt/thesis/thundercat/src/cmake-build-debug/CMakeFiles/edit_cache.dir
+/opt/thesis/thundercat/src/cmake-build-debug/CMakeFiles/spmv_benchmark.dir

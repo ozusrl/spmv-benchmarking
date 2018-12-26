@@ -1,0 +1,15 @@
+/Applications/CLion.app/Contents/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCODEGEN=true -DYZELMAN=../ext/yzelman -G "CodeBlocks - Unix Makefiles" /opt/thesis/thundercat/src
+-- System is Darwin
+-- Compiler is AppleClang
+-- Source dir is /opt/thesis/thundercat/src
+-- Source dir is /opt/thesis/thundercat/src
+-- CXX Flags:  -w -fno-rtti -std=c++14
+-- Linker Flags: 
+-- Could NOT find OpenMP_C (missing: OpenMP_C_FLAGS OpenMP_C_LIB_NAMES) 
+-- Could NOT find OpenMP_CXX (missing: OpenMP_CXX_FLAGS OpenMP_CXX_LIB_NAMES) 
+-- Could NOT find OpenMP (missing: OpenMP_C_FOUND OpenMP_CXX_FOUND) 
+CUDA_TOOLKIT_ROOT_DIR not found or specified
+-- Could NOT find CUDA (missing: CUDA_TOOLKIT_ROOT_DIR CUDA_NVCC_EXECUTABLE CUDA_INCLUDE_DIRS CUDA_CUDART_LIBRARY) 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /opt/thesis/thundercat/src/cmake-build-debug
