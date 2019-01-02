@@ -63,7 +63,7 @@ make
 ```
 
 #### Build spmv-benchmarking with code specializers enabled
-````
+```
 # Start from spmv-benchmarking root folder
 cd build
 
