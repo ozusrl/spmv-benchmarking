@@ -43,6 +43,7 @@ mkdir build
 cd build
 
 cmake ../src
+make
 ```
 
 
@@ -93,3 +94,10 @@ cd build
 cmake -DVIENNACL=${VIENNACL_PATH} ../src
 make
 ```
+
+
+### Enable cuSPARSE
+cuSPARSE is automatically enabled if CUDA library is installed.
+
+### Enable Intel MKL
+Intel MKL is automatically enabled if it is installed.
