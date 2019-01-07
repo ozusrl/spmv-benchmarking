@@ -3,6 +3,7 @@
 #include "profiler.h"
 #include <iostream>
 #include <fstream>
+#include <cstring>
 
 using namespace thundercat;
 
@@ -44,7 +45,7 @@ void ViennaCL::spmv(double *v, double *w) {
   Profiler::recordSpmvOverhead("Copy output matrix to Host", [&]() {
       std::vector<double> cpuY(w, w+N);
       adapter->getY(cpuY);
-      memcpy(w, cpuY.data(), N * sizeof(double));
+      std::memcpy(w, cpuY.data(), N * sizeof(double));
   });
 
 }
