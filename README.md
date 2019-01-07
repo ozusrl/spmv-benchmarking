@@ -1,6 +1,7 @@
 # spmv-benchmarking
 
-## Build MatrixMarket IO
+## Build Dependencies
+### Build MatrixMarket IO
 
 ```
 # Start from spmv-benchmarking root folder
@@ -16,7 +17,7 @@ make
 
 
 
-## Build dockopt.cpp
+### Build dockopt.cpp
 
 ```
 # Start from spmv-benchmarking root folder
@@ -79,6 +80,11 @@ make
 Download ViennaCL from http://viennacl.sourceforge.net/viennacl-download.html
 to `${VIENNACL_PATH}`
 
+Please refer to ViennaCL documentation at
+http://viennacl.sourceforge.net/doc/manual-installation.html for more details
+on build options and available backends.
+
+
 ```
 cd ${VIENNACL_PATH}/build
 cmake ../
@@ -86,7 +92,6 @@ make
 ```
 
 #### Build spmv-benchmarking with ViennaCL
-
 ```
 # Start from spmv-benchmarking root folder
 cd build
@@ -95,9 +100,19 @@ cmake -DVIENNACL=${VIENNACL_PATH} ../src
 make
 ```
 
+### Enable Intel MKL
+Intel MKL is automatically enabled if it is installed.
 
 ### Enable cuSPARSE
 cuSPARSE is automatically enabled if CUDA library is installed.
 
-### Enable Intel MKL
-Intel MKL is automatically enabled if it is installed.
+
+### Enable CUSP
+```
+# Go to your prefferd folder for CUSP library
+git clone https://github.com/cusplibrary/cusplibrary
+
+# Go to spmv_benchmarking root folder
+cmake -DCUSP=${CUSP_PATH} ../src
+make
+```
