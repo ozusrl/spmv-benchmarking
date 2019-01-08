@@ -25,3 +25,12 @@ std::unique_ptr<SpmvMethod> SpmvMethodRegistry::getMethod(std::string name) {
 
   return creator->getMethod();
 }
+
+
+void SpmvMethodRegistry::printMethodNames(){
+  std::cout<<"All available methods are:" << std::endl;
+  for (auto it = registry.begin(); it != registry.end(); ++it ){
+    std::cerr << it->first << std::endl;
+  }
+  std::cout << std::endl;
+}

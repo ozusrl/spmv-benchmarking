@@ -22,6 +22,7 @@ public:
     void add(SpmvMethodCreator *creator, std::string name);
 
     std::unique_ptr<SpmvMethod> getMethod(std::string name);
+    void printMethodNames();
 
 
 private:

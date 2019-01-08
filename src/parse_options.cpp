@@ -1,6 +1,7 @@
 #include <iostream>
 #include "docopt.h"
 #include "parse_options.h"
+#include "spmvRegistry.h"
 
 static const char USAGE[] =
 R"(OzU SRL SpMV Benchmarking.
@@ -8,8 +9,10 @@ R"(OzU SRL SpMV Benchmarking.
     spmv_benchmarking <mtxFile> <method>
       [--threads=<num>] [--debug] [--iters=<count>] [--dump-output]
       [--warmups=<count>]
+    spmv_benchmarking --list
     spmv_benchmarking (-h | --help)
     spmv_benchmarking --version
+
   Options:
     -h --help                     Show this screen.
     --version                     Show version.
@@ -39,6 +42,11 @@ std::unique_ptr<CliOptions> parseCliOptions(int argc, const char * argv[]) {
 
   std::map<std::string, docopt::value> args
       = docopt::docopt(USAGE, { argv + 1, argv + argc }, true, "SpTRSV 0.1");
+
+  if(args["--list"].asBool()) {
+    SpmvMethodRegistry::instance().printMethodNames();
+    exit(0);
+  }
 
   std::unique_ptr<CliOptions> options(new CliOptions {
       args["<mtxFile>"].asString(),
